@@ -2,30 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+        stage('Test') {
             steps {
-                // Check out your source code from version control
-                checkout scm
-            }
-        }
-
-        stage('Build') {
-            steps {
-                // Example for Maven build
-                sh 'mvn clean install'
-
-                // Or, if you're using Gradle
-                // sh 'gradle build'
+                echo 'This is a test stage. You can add your test commands here.'
             }
         }
     }
 
     post {
         success {
-            echo 'Build successful! Deploy your application or perform additional steps here.'
+            echo 'Test successful! Take any necessary actions for success.'
         }
         failure {
-            echo 'Build failed! Take necessary actions for failure.'
+            echo 'Test failed! Take any necessary actions for failure.'
         }
     }
 }
